@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhft2qtf3ls2o"]
 
 [ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://actors/player.tscn" id="1_k6isv"]
-[ext_resource type="PackedScene" uid="uid://ckga7n4tkbiep" path="res://state/border.tscn" id="2_axfo2"]
+[ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://actors/camera_controller.gd" id="3_06sgl"]
 
 [node name="MainState" type="Node" unique_id=759595364]
 
@@ -9,9 +9,10 @@
 
 [node name="Player" parent="Game" unique_id=1607564504 instance=ExtResource("1_k6isv")]
 
-[node name="Camera2D" type="Camera2D" parent="Game" unique_id=562330346]
+[node name="CameraController" type="Node2D" parent="Game" unique_id=1457233963 node_paths=PackedStringArray("target")]
+script = ExtResource("3_06sgl")
+target = NodePath("../Player")
 
-[node name="Border" parent="Game" unique_id=1857006820 instance=ExtResource("2_axfo2")]
-scale = Vector2(2.255, 2.3749995)
+[node name="Camera2D" type="Camera2D" parent="Game/CameraController" unique_id=1101314332]
 
 [node name="UI" type="Node" parent="." unique_id=907819780]
