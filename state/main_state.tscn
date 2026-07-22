@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhft2qtf3ls2o"]
 
 [ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://actors/player.tscn" id="1_k6isv"]
+[ext_resource type="PackedScene" uid="uid://ckga7n4tkbiep" path="res://state/border.tscn" id="2_axfo2"]
 
 [node name="MainState" type="Node" unique_id=759595364]
 
@@ -9,5 +10,7 @@
 [node name="Player" parent="Game" unique_id=1607564504 instance=ExtResource("1_k6isv")]
 
 [node name="Camera2D" type="Camera2D" parent="Game" unique_id=562330346]
+
+[node name="StaticBody2D" parent="Game" unique_id=1857006820 instance=ExtResource("2_axfo2")]
 
 [node name="UI" type="Node" parent="." unique_id=907819780]
