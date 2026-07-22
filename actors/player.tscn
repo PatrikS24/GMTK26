@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://currq2cjuv0k2"]
+
+[ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://actors/player_controller.gd" id="1_niuxy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
+
+[sub_resource type="Gradient" id="Gradient_niuxy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvpqy"]
+gradient = SubResource("Gradient_niuxy")
+
+[node name="Player" type="CharacterBody2D" unique_id=1607564504]
+script = ExtResource("1_niuxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=999861536]
+shape = SubResource("CircleShape2D_mvpqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1391763643]
+texture = SubResource("GradientTexture2D_mvpqy")
