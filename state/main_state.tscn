@@ -11,6 +11,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="Game" unique_id=562330346]
 
-[node name="StaticBody2D" parent="Game" unique_id=1857006820 instance=ExtResource("2_axfo2")]
+[node name="Border" parent="Game" unique_id=1857006820 instance=ExtResource("2_axfo2")]
+scale = Vector2(2.255, 2.3749995)
 
 [node name="UI" type="Node" parent="." unique_id=907819780]

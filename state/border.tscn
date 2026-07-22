@@ -1,32 +1,23 @@
 [gd_scene format=3 uid="uid://ckga7n4tkbiep"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24ut0"]
-size = Vector2(905, 14)
+[ext_resource type="PackedScene" uid="uid://b476s0rt8ew0x" path="res://state/wall.tscn" id="1_1c23k"]
 
 [node name="Border" type="Node2D" unique_id=1876389809]
 
-[node name="Top" type="StaticBody2D" parent="." unique_id=2016715387]
+[node name="Top" parent="." unique_id=1005203624 instance=ExtResource("1_1c23k")]
 position = Vector2(0, -200)
+scale = Vector2(0.886, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1050623430]
-shape = SubResource("RectangleShape2D_24ut0")
-
-[node name="Bottom" type="StaticBody2D" parent="." unique_id=82414920]
+[node name="Bottom" parent="." unique_id=904352615 instance=ExtResource("1_1c23k")]
 position = Vector2(0, 200)
+scale = Vector2(0.893, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=792223917]
-shape = SubResource("RectangleShape2D_24ut0")
-
-[node name="Left" type="StaticBody2D" parent="." unique_id=380697034]
-position = Vector2(-447, 0)
+[node name="Left" parent="." unique_id=1828808449 instance=ExtResource("1_1c23k")]
+position = Vector2(-401, 0)
 rotation = 1.5707964
+scale = Vector2(0.462, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1532773010]
-shape = SubResource("RectangleShape2D_24ut0")
-
-[node name="Right" type="StaticBody2D" parent="." unique_id=1457971077]
-position = Vector2(445, 0)
+[node name="Right" parent="." unique_id=1760513289 instance=ExtResource("1_1c23k")]
+position = Vector2(396, 0)
 rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1992459583]
-shape = SubResource("RectangleShape2D_24ut0")
+scale = Vector2(0.463, 1)

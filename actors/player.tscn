@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://actors/player_controller.gd" id="1_niuxy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
+radius = 27.0
 
 [sub_resource type="Gradient" id="Gradient_niuxy"]
+colors = PackedColorArray(0.31904057, 0.54302305, 0.54341316, 1, 0.50106895, 0.28632915, 0.57708544, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvpqy"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ra83"]
 gradient = SubResource("Gradient_niuxy")
 
 [node name="Player" type="CharacterBody2D" unique_id=1607564504]
@@ -16,4 +18,6 @@ script = ExtResource("1_niuxy")
 shape = SubResource("CircleShape2D_mvpqy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1391763643]
-texture = SubResource("GradientTexture2D_mvpqy")
+position = Vector2(0.49999952, 0)
+scale = Vector2(0.828125, 0.8125)
+texture = SubResource("GradientTexture2D_8ra83")
