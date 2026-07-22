@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://actors/player.tscn" id="1_k6isv"]
 [ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://actors/camera_controller.gd" id="3_06sgl"]
 
+[sub_resource type="Gradient" id="Gradient_axfo2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24ut0"]
+gradient = SubResource("Gradient_axfo2")
+
 [node name="MainState" type="Node" unique_id=759595364]
 
 [node name="Game" type="Node" parent="." unique_id=967642319]
@@ -14,5 +19,35 @@ script = ExtResource("3_06sgl")
 target = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="Game/CameraController" unique_id=1101314332]
+
+[node name="Sprite2D" type="Sprite2D" parent="Game" unique_id=531860446]
+position = Vector2(-353, -234)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Sprite2D" unique_id=476481995]
+position = Vector2(470.04156, 2.9999847)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Sprite2D/Sprite2D" unique_id=519256321]
+position = Vector2(-480.75897, 334)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Sprite2D/Sprite2D/Sprite2D" unique_id=2086431769]
+position = Vector2(302.05933, -220.99998)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Sprite2D/Sprite2D/Sprite2D/Sprite2D" unique_id=635177280]
+position = Vector2(750.1022, -35)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Sprite2D/Sprite2D/Sprite2D/Sprite2D/Sprite2D" unique_id=955653725]
+position = Vector2(-1541.6698, -357)
+scale = Vector2(0.8701357, 1)
+texture = SubResource("GradientTexture2D_24ut0")
 
 [node name="UI" type="Node" parent="." unique_id=907819780]
