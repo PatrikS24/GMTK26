@@ -7,4 +7,4 @@
 [node name="AimedAttack" unique_id=1820580231 instance=ExtResource("1_xlvn6")]
 script = ExtResource("2_0vss4")
 weapon_type = ExtResource("3_4lw8r")
-weapons_per_attack = 50
+weapons_per_attack = 8

@@ -4,7 +4,6 @@ class_name Attack extends Node
 @export var manager: AttackManager
 @export var weapon_type: PackedScene
 
-@onready var life_time_timer: Timer = $LifeTimeTimer
 @onready var start_attack_timer: Timer = $StartAttackTimer
 
 @export var weapons_per_attack: int = 5

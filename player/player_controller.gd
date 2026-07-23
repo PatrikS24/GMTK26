@@ -1,8 +1,13 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var acceleration: float = 0.15
 @export var top_speed: float = 400.0
 var current_velocity: Vector2 = Vector2(0.0, 0.0)
+
+@onready var countdown: Countdown = $Countdown
+
+func get_countdown() -> Countdown:
+	return countdown
 
 func _physics_process(_delta: float) -> void:
 	var input_vector := Vector2(
