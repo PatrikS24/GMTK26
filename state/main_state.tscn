@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bhft2qtf3ls2o"]
 
-[ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://actors/player.tscn" id="1_k6isv"]
-[ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://actors/camera_controller.gd" id="3_06sgl"]
+[ext_resource type="PackedScene" uid="uid://t7jpp0qe5xvv" path="res://attacks/attack_manager.tscn" id="1_06sgl"]
+[ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://player/player.tscn" id="1_k6isv"]
+[ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://player/camera_controller.gd" id="3_06sgl"]
 
 [sub_resource type="Gradient" id="Gradient_axfo2"]
 
@@ -49,5 +50,8 @@ texture = SubResource("GradientTexture2D_24ut0")
 position = Vector2(-1541.6698, -357)
 scale = Vector2(0.8701357, 1)
 texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="AttackManager" parent="Game" unique_id=976077207 node_paths=PackedStringArray("player") instance=ExtResource("1_06sgl")]
+player = NodePath("../Player")
 
 [node name="UI" type="Node" parent="." unique_id=907819780]

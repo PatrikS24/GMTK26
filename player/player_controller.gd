@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var top_speed: float = 400.0
 var current_velocity: Vector2 = Vector2(0.0, 0.0)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var input_vector := Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://currq2cjuv0k2"]
 
-[ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://actors/player_controller.gd" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://player/player_controller.gd" id="1_niuxy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
 radius = 27.0

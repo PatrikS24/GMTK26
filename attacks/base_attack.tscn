@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://wbehabgkpi3m"]
+
+[ext_resource type="Script" uid="uid://ctagpuxd6hewk" path="res://attacks/base_attack.gd" id="1_0j580"]
+
+[node name="BaseAttack" type="Node" unique_id=1820580231]
+script = ExtResource("1_0j580")
+
+[node name="StartAttackTimer" type="Timer" parent="." unique_id=1140879903]
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="StartAttackTimer" to="." method="_on_start_attack_timer_timeout"]

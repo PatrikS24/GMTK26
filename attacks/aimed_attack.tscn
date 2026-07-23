@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d3dadax224li1"]
+
+[ext_resource type="PackedScene" uid="uid://wbehabgkpi3m" path="res://attacks/base_attack.tscn" id="1_xlvn6"]
+[ext_resource type="Script" uid="uid://bqlnoi704tb2j" path="res://attacks/aimed_attack.gd" id="2_0vss4"]
+[ext_resource type="PackedScene" uid="uid://bo2g1yv257edc" path="res://attacks/weapons/aimed_weapon.tscn" id="3_4lw8r"]
+
+[node name="AimedAttack" unique_id=1820580231 instance=ExtResource("1_xlvn6")]
+script = ExtResource("2_0vss4")
+weapon_type = ExtResource("3_4lw8r")
+weapons_per_attack = 50

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bo2g1yv257edc"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_ag5uw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5uw"]
+size = Vector2(64.465, 64.03)
+
+[sub_resource type="Gradient" id="Gradient_5714o"]
+offsets = PackedFloat32Array(0, 0.46385542)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gibtk"]
+gradient = SubResource("Gradient_5714o")
+
+[node name="AimedWeapon" unique_id=1300584643 instance=ExtResource("1_ag5uw")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+shape = SubResource("RectangleShape2D_ag5uw")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1983737595]
+texture = SubResource("GradientTexture2D_gibtk")

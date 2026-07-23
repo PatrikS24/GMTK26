@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dmyyllapefm3q"]
+
+[ext_resource type="Script" uid="uid://46au8d26jnr" path="res://attacks/weapons/base_weapon.gd" id="1_gibtk"]
+
+[sub_resource type="Gradient" id="Gradient_gibtk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24ut0"]
+gradient = SubResource("Gradient_gibtk")
+
+[sub_resource type="Animation" id="Animation_6cyh8"]
+length = 1.6333333
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_e8uvt"]
+resource_name = "WeaponAnimation"
+length = 15.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4333333, 15),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_attack"
+}, {
+"args": [],
+"method": &"destroy"
+}]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 1),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sj4un"]
+_data = {
+&"RESET": SubResource("Animation_6cyh8"),
+&"WeaponAnimation": SubResource("Animation_e8uvt")
+}
+
+[node name="BaseWeapon" type="Area2D" unique_id=1300584643]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_gibtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1645104309]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1983737595]
+texture = SubResource("GradientTexture2D_24ut0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=643233298]
+libraries/ = SubResource("AnimationLibrary_sj4un")
+autoplay = &"WeaponAnimation"

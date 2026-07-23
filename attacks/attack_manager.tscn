@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://t7jpp0qe5xvv"]
+
+[ext_resource type="Script" uid="uid://cpkjk88o036e0" path="res://attacks/attack_manager.gd" id="1_ovlrm"]
+[ext_resource type="PackedScene" uid="uid://d3dadax224li1" path="res://attacks/aimed_attack.tscn" id="3_x32qg"]
+
+[node name="AttackManager" type="Node" unique_id=976077207 node_paths=PackedStringArray("attacks")]
+script = ExtResource("1_ovlrm")
+attacks = [NodePath("Attacks/AimedAttack")]
+
+[node name="Attacks" type="Node" parent="." unique_id=1975528073]
+
+[node name="AimedAttack" parent="Attacks" unique_id=1820580231 node_paths=PackedStringArray("manager") instance=ExtResource("3_x32qg")]
+manager = NodePath("../..")
+
+[node name="DoNewAttackTimer" type="Timer" parent="." unique_id=478730614]
+wait_time = 5.676
+autostart = true
+
+[connection signal="timeout" from="DoNewAttackTimer" to="." method="_on_do_new_attack_timer_timeout"]
