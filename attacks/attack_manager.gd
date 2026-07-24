@@ -1,7 +1,7 @@
 class_name AttackManager extends Node
 
 @export var player: Node2D
-@export var spawn_circle_radius: int = 600
+@export var spawn_circle_radius: int = 700
 @export var attacks: Array[Attack]
 
 @onready var do_new_attack_timer: Timer = $DoNewAttackTimer
@@ -14,7 +14,8 @@ func _on_do_new_attack_timer_timeout() -> void:
 	if MainState.state != MainState.GameState.IN_GAME:
 		do_new_attack_timer.stop()
 		return
-	attacks[0].spawn_weapons()
+	var index = randi() % attacks.size()
+	attacks[index].spawn_weapons()
 
 
 func get_rand_spawn_pos_circle(distance_from_player: int = spawn_circle_radius) -> Vector2:

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1mm731y36j"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_t67nt"]
+[ext_resource type="Script" uid="uid://csjq4tywf7qu2" path="res://homeing_weapon.gd" id="2_tr1li"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlyd4"]
+radius = 18.218517
+height = 76.7001
+
+[node name="HomeingWeapon" unique_id=1300584643 instance=ExtResource("1_t67nt")]
+script = ExtResource("2_tr1li")
+turn_speed = 1.0
+speed = 300.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dlyd4")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1983737595]
+position = Vector2(0.47937763, -0.479434)
+scale = Vector2(1.1235367, 0.5543464)

@@ -4,6 +4,8 @@ class_name Weapon extends Area2D
 @export var damage: float = 5.0
 var attacking: bool = false
 
+var fast_mode_speed: float = speed * 1.5
+
 
 func _physics_process(delta: float) -> void:
 	if attacking:

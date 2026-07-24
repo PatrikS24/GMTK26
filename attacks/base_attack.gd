@@ -6,7 +6,7 @@ class_name Attack extends Node
 
 @export var weapons_per_attack: int = 5
 
-var weapons: Array[Weapon]
+
 
 func spawn_weapons():
 	push_error("choose_spawn_locations() not implemented")
