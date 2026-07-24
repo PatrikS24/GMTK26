@@ -14,8 +14,6 @@ func spawn_weapons():
 	push_error("choose_spawn_locations() not implemented")
 
 
-func _on_start_attack_timer_timeout() -> void:
-	spawn_weapons()
 
 func _create_weapon() -> Weapon:
 	var weapon_instance = weapon_type.instantiate()

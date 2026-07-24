@@ -10,6 +10,7 @@ func get_countdown() -> Countdown:
 	return countdown
 
 func _physics_process(_delta: float) -> void:
+	if MainState.state != MainState.GameState.IN_GAME: return
 	var input_vector := Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

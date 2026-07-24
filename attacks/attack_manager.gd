@@ -2,9 +2,20 @@ class_name AttackManager extends Node
 
 @export var player: Node2D
 @export var spawn_circle_radius: int = 600
-
-
 @export var attacks: Array[Attack]
+
+@onready var do_new_attack_timer: Timer = $DoNewAttackTimer
+
+func start_spawning():
+	do_new_attack_timer.start()
+	_on_do_new_attack_timer_timeout()
+
+func _on_do_new_attack_timer_timeout() -> void:
+	if MainState.state != MainState.GameState.IN_GAME:
+		do_new_attack_timer.stop()
+		return
+	attacks[0].spawn_weapons()
+
 
 func get_rand_spawn_pos_circle(distance_from_player: int = spawn_circle_radius) -> Vector2:
 	return player.global_position + Vector2.from_angle(randf() * 2 * PI).normalized() * distance_from_player
@@ -24,6 +35,3 @@ func get_spawn_pos_arc(num_of_points: int, radians: float, start_angle: float = 
 
 func get_player_pos() -> Vector2:
 	return player.global_position
-
-func _on_do_new_attack_timer_timeout() -> void:
-	attacks[0].spawn_weapons()

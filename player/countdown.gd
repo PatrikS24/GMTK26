@@ -2,6 +2,11 @@ class_name Countdown extends Node
 
 @onready var timer: Timer = $Timer
 
+func _process(delta: float) -> void:
+	if MainState.state != MainState.GameState.IN_GAME:
+		timer.paused = true
+	else: timer.paused = false
+
 func add_time(time: float):
 	var remaining = timer.time_left
 	remaining += time
