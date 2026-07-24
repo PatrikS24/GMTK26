@@ -21,7 +21,7 @@ func _physics_process(delta):
 		var sideways = direction.orthogonal() * sin(time * frequency + phase) * amplitude
 
 		global_position = start_pos + forward + sideways
-		print(amplitude)
+
 
 func init_wave(left: bool, start_position: Vector2, offset: float):
 	direction = Vector2.LEFT if !left else Vector2.RIGHT
@@ -32,7 +32,7 @@ func create_children(scene: PackedScene, left: bool):
 	var dir = Vector2.LEFT if left else Vector2.RIGHT
 	for i in range(num_of_children):
 		var new_weapon := scene.instantiate() as WaveWeapon
-		new_weapon.global_position = start_pos + dir * 100 * (1+i)
+		new_weapon.global_position = start_pos + dir * 150 * (1+i)
 		get_tree().root.add_child(new_weapon)
 
 		new_weapon.init_wave(left, new_weapon.global_position, -(i + 1) * phase_offset)

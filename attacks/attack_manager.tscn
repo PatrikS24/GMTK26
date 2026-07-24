@@ -22,6 +22,5 @@ manager = NodePath("../..")
 
 [node name="DoNewAttackTimer" type="Timer" parent="." unique_id=478730614]
 wait_time = 5.0
-autostart = true
 
 [connection signal="timeout" from="DoNewAttackTimer" to="." method="_on_do_new_attack_timer_timeout"]

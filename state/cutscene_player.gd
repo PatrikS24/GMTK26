@@ -2,6 +2,9 @@ class_name CutscenePlayer extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var player: Player = $"../Game/Player"
+
+
 func play_cutscene():
 	animation_player.play("cutscene")
 

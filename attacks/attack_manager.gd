@@ -7,8 +7,16 @@ class_name AttackManager extends Node
 @onready var do_new_attack_timer: Timer = $DoNewAttackTimer
 
 func start_spawning():
-	do_new_attack_timer.start()
-	_on_do_new_attack_timer_timeout()
+	if do_new_attack_timer.paused == true:
+		do_new_attack_timer.paused = false
+
+	if do_new_attack_timer.is_stopped():
+		do_new_attack_timer.start()
+		_on_do_new_attack_timer_timeout()
+
+
+func stop_spawning():
+	do_new_attack_timer.paused = true
 
 func _on_do_new_attack_timer_timeout() -> void:
 	if MainState.state != MainState.GameState.IN_GAME:

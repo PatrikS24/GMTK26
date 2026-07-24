@@ -24,9 +24,11 @@ scale = Vector2(0.828125, 0.8125)
 texture = SubResource("GradientTexture2D_8ra83")
 
 [node name="Countdown" type="Node" parent="." unique_id=1143242230]
+process_mode = 3
 script = ExtResource("2_rkbax")
 
 [node name="Timer" type="Timer" parent="Countdown" unique_id=336589066]
+process_mode = 3
 wait_time = 60.0
 one_shot = true
 autostart = true

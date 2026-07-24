@@ -1,14 +1,19 @@
 extends Node
 
-enum GameState {MENU, CUTSCENE, IN_GAME}
+enum GameState {MENU, CUTSCENE, IN_GAME, PAUSE}
 
 var state: GameState = GameState.MENU
 
 signal onMenu
 signal onInGame
 signal onCutScene
+signal onPause
 
 func set_game_state(new_state: GameState):
+	if new_state != GameState.IN_GAME:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
 	match new_state:
 		GameState.MENU:
 			_to_menu()
@@ -16,6 +21,8 @@ func set_game_state(new_state: GameState):
 			_to_cut_scene()
 		GameState.IN_GAME:
 			_to_in_game()
+		GameState.PAUSE:
+			_to_pause()
 
 func get_state():
 	return state
@@ -31,3 +38,7 @@ func _to_in_game():
 func _to_menu():
 	state = GameState.MENU
 	onMenu.emit()
+
+func _to_pause():
+	state = GameState.PAUSE
+	onPause.emit()
