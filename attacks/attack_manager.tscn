@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://cpkjk88o036e0" path="res://attacks/attack_manager.gd" id="1_ovlrm"]
 [ext_resource type="PackedScene" uid="uid://d3dadax224li1" path="res://attacks/aimed_attack.tscn" id="3_x32qg"]
 [ext_resource type="PackedScene" uid="uid://cagiqt8h6ttab" path="res://attacks/homeing_attack.tscn" id="3_y5f0i"]
+[ext_resource type="PackedScene" uid="uid://c78jj0wpn8527" path="res://attacks/wave_attack.tscn" id="4_7pmqf"]
 
 [node name="AttackManager" type="Node" unique_id=976077207 node_paths=PackedStringArray("attacks")]
 script = ExtResource("1_ovlrm")
-attacks = [NodePath("Attacks/AimedAttack"), NodePath("Attacks/HomeingAttack")]
+attacks = [NodePath("Attacks/AimedAttack"), NodePath("Attacks/HomeingAttack"), NodePath("Attacks/WaveAttack")]
 
 [node name="Attacks" type="Node" parent="." unique_id=1975528073]
 
@@ -14,6 +15,9 @@ attacks = [NodePath("Attacks/AimedAttack"), NodePath("Attacks/HomeingAttack")]
 manager = NodePath("../..")
 
 [node name="HomeingAttack" parent="Attacks" unique_id=298499328 node_paths=PackedStringArray("manager") instance=ExtResource("3_y5f0i")]
+manager = NodePath("../..")
+
+[node name="WaveAttack" parent="Attacks" unique_id=861575425 node_paths=PackedStringArray("manager") instance=ExtResource("4_7pmqf")]
 manager = NodePath("../..")
 
 [node name="DoNewAttackTimer" type="Timer" parent="." unique_id=478730614]

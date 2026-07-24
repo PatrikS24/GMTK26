@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c78jj0wpn8527"]
+
+[ext_resource type="PackedScene" uid="uid://wbehabgkpi3m" path="res://attacks/base_attack.tscn" id="1_m2813"]
+[ext_resource type="Script" uid="uid://dgsg4b15abqqs" path="res://attacks/wave_attack.gd" id="2_3uax7"]
+[ext_resource type="PackedScene" uid="uid://q86ualvcwd2a" path="res://attacks/weapons/wave_weapon.tscn" id="3_3uax7"]
+
+[node name="WaveAttack" unique_id=1820580231 instance=ExtResource("1_m2813")]
+script = ExtResource("2_3uax7")
+weapon_type = ExtResource("3_3uax7")
+weapons_per_attack = 3

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1mm731y36j"]
 
 [ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_t67nt"]
-[ext_resource type="Script" uid="uid://csjq4tywf7qu2" path="res://homeing_weapon.gd" id="2_tr1li"]
+[ext_resource type="Script" uid="uid://csjq4tywf7qu2" path="res://attacks/weapons/homeing_weapon.gd" id="2_tr1li"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlyd4"]
 radius = 18.218517

@@ -2,7 +2,7 @@ class_name Countdown extends Node
 
 @onready var timer: Timer = $Timer
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if MainState.state != MainState.GameState.IN_GAME:
 		timer.paused = true
 	else: timer.paused = false

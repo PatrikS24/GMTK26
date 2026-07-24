@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cagiqt8h6ttab"]
 
 [ext_resource type="PackedScene" uid="uid://wbehabgkpi3m" path="res://attacks/base_attack.tscn" id="1_fjc0a"]
-[ext_resource type="Script" uid="uid://sqg4w27woa5r" path="res://homeing_attack.gd" id="2_lgo1b"]
+[ext_resource type="Script" uid="uid://sqg4w27woa5r" path="res://attacks/homeing_attack.gd" id="2_lgo1b"]
 [ext_resource type="PackedScene" uid="uid://d1mm731y36j" path="res://attacks/weapons/homeing_weapon.tscn" id="3_lgo1b"]
 
 [node name="HomeingAttack" unique_id=1820580231 instance=ExtResource("1_fjc0a")]

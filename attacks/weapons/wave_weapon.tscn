@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://q86ualvcwd2a"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_vv8rt"]
+[ext_resource type="Script" uid="uid://bstxjrd1wup1x" path="res://attacks/weapons/wave_weapon.gd" id="2_qk3im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkwr8"]
+size = Vector2(29.72129, 28.76608)
+
+[node name="WaveWeapon" unique_id=1300584643 instance=ExtResource("1_vv8rt")]
+script = ExtResource("2_qk3im")
+num_of_children = 10
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+position = Vector2(0.47937658, 0)
+shape = SubResource("RectangleShape2D_kkwr8")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1983737595]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.47937563, 0.4794347)

@@ -14,6 +14,6 @@ func spawn_weapons():
 
 
 func _create_weapon() -> Weapon:
-	var weapon_instance = weapon_type.instantiate()
+	var weapon_instance = weapon_type.instantiate() as Weapon
 	get_tree().root.add_child(weapon_instance)
 	return weapon_instance
