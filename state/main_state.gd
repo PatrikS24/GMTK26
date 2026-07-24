@@ -23,7 +23,6 @@ func get_state():
 func _to_cut_scene():
 	state = GameState.CUTSCENE
 	onCutScene.emit()
-	set_game_state(GameState.IN_GAME)
 
 func _to_in_game():
 	state = GameState.IN_GAME
