@@ -4,6 +4,8 @@ class_name Countdown extends Node
 
 @export var countdown_time: float = 60.0
 
+const wakeup_time : float = 60.0 * 3
+
 func _process(_delta: float) -> void:
 	if MainState.state != MainState.GameState.IN_GAME:
 		timer.paused = true

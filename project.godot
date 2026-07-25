@@ -27,6 +27,7 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
+"res://assets/": "yellow",
 "res://attacks/": "red",
 "res://player/": "blue",
 "res://state/": "purple"

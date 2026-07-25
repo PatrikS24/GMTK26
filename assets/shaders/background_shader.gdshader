@@ -3,6 +3,7 @@ shader_type canvas_item;
 // Camera & Viewport Inputs
 uniform vec2 camera_position;
 uniform vec2 viewport_size;
+uniform float eye_openness;
 
 // Voronoi
 uniform float cell_size : hint_range(1.0, 500.0) = 60.0;
@@ -16,6 +17,10 @@ uniform vec4 edge_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform vec4 background_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform vec4 perlin_edge_color : source_color = vec4(0.0, 1.0, 0.0, 1.0);
 uniform vec4 perlin2_edge_color : source_color = vec4(1.0, 0.0, 1.0, 1.0);
+
+// Textures
+uniform sampler2D eyelid_texture : source_color, filter_linear;
+uniform sampler2D room_texture : source_color, filter_linear;
 
 // Perlin Controls
 uniform float perlin_scale : hint_range(0.1, 50.0) = 5.0;
@@ -167,11 +172,38 @@ vec4 color_after_first = mix(
 
 // Apply second perlin layer
 vec4 perlin2_color = mix(background_color, perlin2_edge_color, voronoi_mask);
-vec4 final_color = mix(
+vec4 final_background_color = mix(
 	color_after_first,
 	perlin2_color,
 	voronoi_mask * perlin2_mask
 );
 
-COLOR = final_color;
+// Eye close/open
+vec2 uv = SCREEN_UV;
+
+vec2 pivot = vec2(0.5);
+uv -= pivot;
+float cos_angle = cos(PI);
+float sin_angle = sin(PI);
+mat2 rotation_matrix = mat2(
+    vec2(cos_angle, -sin_angle),
+    vec2(sin_angle, cos_angle)
+);
+
+// Rotate
+vec2 bottom_uv = (rotation_matrix * uv) + pivot + vec2(0.0, -eye_openness);
+vec2 top_uv = uv + pivot + vec2(0.0, -eye_openness);
+vec2 room_uv = uv + pivot;
+
+vec4 bottom_mask_color = texture(eyelid_texture, bottom_uv);
+float bottom_mask = bottom_mask_color.g * bottom_mask_color.a;
+
+vec4 top_mask_color = texture(eyelid_texture, top_uv);
+float top_mask = top_mask_color.g * top_mask_color.a;
+
+float background_mask = top_mask + bottom_mask;
+
+vec4 room_texture_color = texture(room_texture, room_uv);
+
+COLOR = mix(room_texture_color, final_background_color, min(background_mask, 1.0));
 }

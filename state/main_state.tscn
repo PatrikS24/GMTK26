@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://vuhiilaydigk" path="res://state/cutscene_player.gd" id="8_ovehu"]
 [ext_resource type="Script" uid="uid://cv75lnkykhqlt" path="res://state/pause_menu.gd" id="8_qp3ij"]
 [ext_resource type="Script" uid="uid://dg02owjd441yo" path="res://state/background.gd" id="10_h6yog"]
-[ext_resource type="Shader" uid="uid://depnyg2vfo40p" path="res://state/background_shader.gdshader" id="11_4180k"]
+[ext_resource type="Shader" uid="uid://depnyg2vfo40p" path="res://assets/shaders/background_shader.gdshader" id="11_4180k"]
+[ext_resource type="Texture2D" uid="uid://bpg2f4f6cfsyw" path="res://assets/sprites/eyelid.png" id="12_jamk6"]
+[ext_resource type="Texture2D" uid="uid://j2hr5b8rqv4i" path="res://assets/sprites/room.png" id="13_5whs4"]
 
 [sub_resource type="Animation" id="Animation_qp3ij"]
 length = 0.001
@@ -67,6 +69,7 @@ _data = {
 shader = ExtResource("11_4180k")
 shader_parameter/camera_position = Vector2(0, 0)
 shader_parameter/viewport_size = Vector2(0, 0)
+shader_parameter/eye_openness = 0.0
 shader_parameter/cell_size = 250.0000118275
 shader_parameter/morph_speed = 0.1970000093575
 shader_parameter/detail = 5
@@ -75,11 +78,13 @@ shader_parameter/lacunarity = 2.494000070965
 shader_parameter/edge_color = Color(0.26594386, 0.25199443, 0.4280828, 1)
 shader_parameter/background_color = Color(0.064667515, 0.06463359, 0.19410169, 1)
 shader_parameter/perlin_edge_color = Color(0.37315938, 0.4412296, 0.7080301, 1)
+shader_parameter/perlin2_edge_color = Color(0.28907627, 0.2115739, 0.40751037, 1)
+shader_parameter/eyelid_texture = ExtResource("12_jamk6")
+shader_parameter/room_texture = ExtResource("13_5whs4")
 shader_parameter/perlin_scale = 0.50000002049012
 shader_parameter/perlin_speed = 0.2
 shader_parameter/perlin_threshold = 0.5230000248425
 shader_parameter/edge_width = 0.5
-shader_parameter/perlin2_edge_color = Color(0.28907627, 0.2115739, 0.40751037, 1)
 shader_parameter/perlin2_scale = 0.86800003797012
 shader_parameter/perlin2_speed = 0.2
 shader_parameter/perlin2_threshold = 0.4770000226575
