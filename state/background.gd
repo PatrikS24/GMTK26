@@ -17,10 +17,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var mat := background.material as ShaderMaterial
 	if MainState.get_state() == MainState.GameState.IN_GAME:
 		eye_openness = lerp(eye_openness, 0.0, 0.01)
+		mat.set_shader_parameter("room_brightness", 0.5)
+	else: mat.set_shader_parameter("room_brightness", 1.0)
 
-	var mat := background.material as ShaderMaterial
 	mat.set_shader_parameter("camera_position", camera.global_position)
 	mat.set_shader_parameter("viewport_size", get_viewport().get_visible_rect().size)
 	mat.set_shader_parameter("eye_openness", eye_openness)

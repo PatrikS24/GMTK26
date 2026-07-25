@@ -33,6 +33,29 @@ uniform float perlin2_scale : hint_range(0.1, 50.0) = 5.0;
 uniform float perlin2_speed : hint_range(0.0, 5.0) = 0.2;
 uniform float perlin2_threshold : hint_range(0.0, 1.0) = 0.6;
 
+// Ramp
+uniform float ramp_0 : hint_range(0.0, 1.0) = 0.0;
+uniform float ramp_1 : hint_range(0.0, 1.0) = 0.25;
+uniform float ramp_2 : hint_range(0.0, 1.0) = 0.5;
+uniform float ramp_3 : hint_range(0.0, 1.0) = 0.75;
+uniform float ramp_4 : hint_range(0.0, 1.0) = 1.0;
+
+// Room brightness
+uniform float room_brightness : hint_range(0.0, 1.0) = 0.5;
+
+float sample_ramp(float t)
+{
+	t = clamp(t, 0.0, 1.0);
+
+	if (t < 0.25)
+		return mix(ramp_0, ramp_1, t * 4.0);
+	else if (t < 0.5)
+		return mix(ramp_1, ramp_2, (t - 0.25) * 4.0);
+	else if (t < 0.75)
+		return mix(ramp_2, ramp_3, (t - 0.5) * 4.0);
+	else
+		return mix(ramp_3, ramp_4, (t - 0.75) * 4.0);
+}
 
 // Hash function for Perlin
 float hash(vec2 p) {
@@ -132,7 +155,7 @@ void fragment() {
     }
 
     float voronoi_mask = clamp(total_noise / max_possible_amplitude, 0.0, 1.0);
-
+	voronoi_mask = sample_ramp(voronoi_mask);
     // First perlin layer
 float perlin_period = 20.0;
 
@@ -204,6 +227,7 @@ float top_mask = top_mask_color.a;
 float background_mask = top_mask + bottom_mask;
 
 vec4 room_texture_color = texture(room_texture, room_uv);
+room_texture_color = room_texture_color * vec4(room_brightness, room_brightness, room_brightness, 1.0);
 
 COLOR = mix(room_texture_color, final_background_color, min(background_mask, 1.0));
 }

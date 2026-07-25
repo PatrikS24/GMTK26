@@ -16,5 +16,6 @@ func _on_volume_changed(value: float) -> void:
 		master_bus_index,
 		linear_to_db(value)
 	)
+
 func _to_main_menu():
 	MainState.set_game_state(MainState.GameState.MENU)

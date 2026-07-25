@@ -86,19 +86,25 @@ shader_parameter/morph_speed = 0.1970000093575
 shader_parameter/detail = 5
 shader_parameter/roughness = 0.394000018715
 shader_parameter/lacunarity = 2.494000070965
-shader_parameter/edge_color = Color(0.26594386, 0.25199443, 0.4280828, 1)
-shader_parameter/background_color = Color(0.032887887, 0.032870263, 0.12888858, 1)
-shader_parameter/perlin_edge_color = Color(0.37315938, 0.4412296, 0.7080301, 1)
-shader_parameter/perlin2_edge_color = Color(0.28907627, 0.2115739, 0.40751037, 1)
+shader_parameter/edge_color = Color(0.17941675, 0.16744915, 0.29896355, 1)
+shader_parameter/background_color = Color(0.009564192, 0.009560853, 0.05744821, 1)
+shader_parameter/perlin_edge_color = Color(0.2473068, 0.30388558, 0.531288, 1)
+shader_parameter/perlin2_edge_color = Color(0.19206914, 0.13494182, 0.27731588, 1)
 shader_parameter/eyelid_texture = ExtResource("12_jamk6")
 shader_parameter/room_texture = ExtResource("13_5whs4")
 shader_parameter/perlin_scale = 0.50000002049012
 shader_parameter/perlin_speed = 0.2
 shader_parameter/perlin_threshold = 0.5230000248425
-shader_parameter/edge_width = 0.5
+shader_parameter/edge_width = 0.28900001302898004
 shader_parameter/perlin2_scale = 0.86800003797012
-shader_parameter/perlin2_speed = 0.2
+shader_parameter/perlin2_speed = 0.2000000095
 shader_parameter/perlin2_threshold = 0.4770000226575
+shader_parameter/ramp_0 = 0.0
+shader_parameter/ramp_1 = 0.25
+shader_parameter/ramp_2 = 0.394000018715
+shader_parameter/ramp_3 = 0.8390000398525
+shader_parameter/ramp_4 = 1.0
+shader_parameter/room_brightness = 0.358000017005
 
 [sub_resource type="Animation" id="Animation_5whs4"]
 length = 0.001
@@ -437,3 +443,4 @@ libraries/ = SubResource("AnimationLibrary_5whs4")
 script = ExtResource("16_6ixeq")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=147649808]
+autoplay = true
