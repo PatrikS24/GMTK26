@@ -21,6 +21,11 @@ func _physics_process(delta):
 		var sideways = direction.orthogonal() * sin(time * frequency + phase) * amplitude
 
 		global_position = start_pos + forward + sideways
+		var dt = 0.01
+		var next_time = time + dt
+		var next_pos = start_pos + direction * speed * next_time + direction.orthogonal() * sin(next_time * frequency + phase) * amplitude
+
+		look_at(next_pos)
 
 
 func init_wave(left: bool, start_position: Vector2, offset: float):

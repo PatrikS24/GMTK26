@@ -196,10 +196,10 @@ vec2 top_uv = uv + pivot + vec2(0.0, -eye_openness);
 vec2 room_uv = uv + pivot;
 
 vec4 bottom_mask_color = texture(eyelid_texture, bottom_uv);
-float bottom_mask = bottom_mask_color.g * bottom_mask_color.a;
+float bottom_mask = bottom_mask_color.a;
 
 vec4 top_mask_color = texture(eyelid_texture, top_uv);
-float top_mask = top_mask_color.g * top_mask_color.a;
+float top_mask = top_mask_color.a;
 
 float background_mask = top_mask + bottom_mask;
 

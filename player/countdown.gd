@@ -4,12 +4,19 @@ class_name Countdown extends Node
 
 @export var countdown_time: float = 60.0
 
-const wakeup_time : float = 60.0 * 3
+const timescale: float = 140.0
+const wakeup_time : float = 60.0 * 3 * timescale
 
-func _process(_delta: float) -> void:
+var current_time: float = 0.0
+
+func _process(delta: float) -> void:
 	if MainState.state != MainState.GameState.IN_GAME:
 		timer.paused = true
-	else: timer.paused = false
+	else:
+		timer.paused = false
+		current_time += delta * timescale
+	if current_time >= wakeup_time:
+		pass # TODO: game over
 
 func add_time(time: float):
 	var remaining = timer.time_left
@@ -34,8 +41,14 @@ func restart_timer():
 func get_time_left():
 	return timer.time_left
 
-func death():
+func get_wake_up_time():
+	return wakeup_time
+
+func get_current_time():
+	return current_time
+
+func win():
 	pass # TODO
 
 func _on_timer_timeout() -> void:
-	death()
+	win()

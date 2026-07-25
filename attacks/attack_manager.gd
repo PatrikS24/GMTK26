@@ -45,10 +45,10 @@ func get_positions_on_y_axis(num_of_points: int, height: int, left_side: bool, d
 	var dir_sign = -1 if left_side else 1
 	var x_pos = player.global_position.x + distance_from_player * dir_sign
 	var positions: Array[Vector2] = []
-	var bottom_y = player.global_position.y - height / 2.0
+	var bottom_y = player.global_position.y + height / 2.0
 	var height_diff = height / float(num_of_points)
 	for i in range(num_of_points):
-		positions.append(Vector2(x_pos, bottom_y + height_diff * i))
+		positions.append(Vector2(x_pos, bottom_y - height_diff * i))
 	return positions
 
 
