@@ -8,6 +8,9 @@ extends Node
 
 @export var attack_manager: AttackManager
 
+@onready var background_controller: BackgroundController = $BackgroundController
+
+
 
 
 func _ready() -> void:
@@ -47,6 +50,8 @@ func on_in_game():
 	cutscene.visible = false
 	pause_menu.visible = false
 	attack_manager.start_spawning()
+	if background_controller.eye_openness > 0.1:
+		background_controller.close_eyes()
 
 
 func on_pause():
@@ -56,3 +61,4 @@ func on_pause():
 	cutscene.visible = false
 	pause_menu.visible = true
 	attack_manager.stop_spawning()
+	background_controller.open_eyes()

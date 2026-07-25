@@ -9,6 +9,8 @@ signal onInGame
 signal onCutScene
 signal onPause
 
+signal damageDealt
+
 func set_game_state(new_state: GameState):
 	if new_state != GameState.IN_GAME:
 		get_tree().paused = true
@@ -42,3 +44,6 @@ func _to_menu():
 func _to_pause():
 	state = GameState.PAUSE
 	onPause.emit()
+
+func onDamageDealt():
+	damageDealt.emit()

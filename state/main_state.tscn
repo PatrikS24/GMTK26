@@ -19,44 +19,68 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/path = NodePath("CanvasLayer/Control/PhoneHand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-813, 514)]
+"values": [Vector2(951, 1152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BackgroundController:eye_openness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_y8htd"]
 resource_name = "cutscene"
-length = 2.0
-tracks/0/type = "value"
+length = 6.0
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-813, 514), Vector2(3000, 514)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.9666667),
+"times": PackedFloat32Array(6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"go_to_ingame"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/PhoneHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 1.5333333, 2.6666667, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(951, 1152), Vector2(951, 600), Vector2(951, 600), Vector2(951, 1152)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BackgroundController:eye_openness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 4.6666665, 5.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ovehu"]
@@ -64,6 +88,11 @@ _data = {
 &"RESET": SubResource("Animation_qp3ij"),
 &"cutscene": SubResource("Animation_y8htd")
 }
+
+[sub_resource type="Gradient" id="Gradient_jamk6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24ut0"]
+gradient = SubResource("Gradient_jamk6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6yog"]
 shader = ExtResource("11_4180k")
@@ -88,6 +117,60 @@ shader_parameter/edge_width = 0.5
 shader_parameter/perlin2_scale = 0.86800003797012
 shader_parameter/perlin2_speed = 0.2
 shader_parameter/perlin2_threshold = 0.4770000226575
+
+[sub_resource type="Animation" id="Animation_5whs4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:eye_openness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_yycia"]
+resource_name = "close_eyes"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:eye_openness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jamk6"]
+resource_name = "open_eyes"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:eye_openness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5whs4"]
+_data = {
+&"RESET": SubResource("Animation_5whs4"),
+&"close_eyes": SubResource("Animation_yycia"),
+&"open_eyes": SubResource("Animation_jamk6")
+}
 
 [node name="StateManager" type="Node" unique_id=1031891976 node_paths=PackedStringArray("attack_manager")]
 process_mode = 3
@@ -217,24 +300,35 @@ libraries/ = SubResource("AnimationLibrary_ovehu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Cutscene" unique_id=1769544555]
 
-[node name="Node2D" type="Node2D" parent="Cutscene/CanvasLayer" unique_id=128988696]
-position = Vector2(-813, 514)
+[node name="Control" type="Control" parent="Cutscene/CanvasLayer" unique_id=616927704]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="Cutscene/CanvasLayer/Node2D" unique_id=1986754732]
-offset_right = 740.0
-offset_bottom = 156.0
-theme_override_font_sizes/font_size = 78
-text = "THIS IS A CUTSCENE"
+[node name="PhoneHand" type="TextureRect" parent="Cutscene/CanvasLayer/Control" unique_id=2006581225]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 1152.0
+offset_right = 1015.0
+offset_bottom = 1216.0007
+texture = SubResource("GradientTexture2D_24ut0")
 
-[node name="BackgroundCanvasLayer" type="CanvasLayer" parent="." unique_id=1998990285 node_paths=PackedStringArray("camera")]
+[node name="BackgroundController" type="CanvasLayer" parent="." unique_id=1998990285 node_paths=PackedStringArray("camera")]
 layer = -1
 script = ExtResource("10_h6yog")
 camera = NodePath("../Game/CameraController/Camera2D")
 
-[node name="Background" type="ColorRect" parent="BackgroundCanvasLayer" unique_id=366442039]
+[node name="Background" type="ColorRect" parent="BackgroundController" unique_id=366442039]
 material = SubResource("ShaderMaterial_h6yog")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EyeAnimationPlayer" type="AnimationPlayer" parent="BackgroundController" unique_id=1182973758]
+libraries/ = SubResource("AnimationLibrary_5whs4")

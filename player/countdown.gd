@@ -15,6 +15,7 @@ func add_time(time: float):
 	var remaining = timer.time_left
 	remaining += time
 	timer.start(remaining)
+	MainState.onDamageDealt()
 
 func remove_time(time: float):
 	var remaining = timer.time_left
