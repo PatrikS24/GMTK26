@@ -23,7 +23,7 @@ func _on_do_new_attack_timer_timeout() -> void:
 		do_new_attack_timer.stop()
 		return
 	var index = randi() % attacks.size()
-	attacks[3].spawn_weapons()
+	attacks[index].spawn_weapons()
 
 
 func get_rand_spawn_pos_circle(distance_from_player: int = spawn_circle_radius) -> Vector2:

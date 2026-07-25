@@ -228,6 +228,6 @@ float background_mask = top_mask + bottom_mask;
 
 vec4 room_texture_color = texture(room_texture, room_uv);
 room_texture_color = room_texture_color * vec4(room_brightness, room_brightness, room_brightness, 1.0);
-
-COLOR = mix(room_texture_color, final_background_color, min(background_mask, 1.0));
+vec4 blended_background = mix(final_background_color, vec4(0.0, 0.0, 0.0, 1.0), eye_openness * 1.5);
+COLOR = mix(room_texture_color, blended_background, min(background_mask, 1.0));
 }

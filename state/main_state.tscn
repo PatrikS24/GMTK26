@@ -14,8 +14,8 @@
 [ext_resource type="Script" uid="uid://dg02owjd441yo" path="res://state/background.gd" id="10_h6yog"]
 [ext_resource type="Shader" uid="uid://depnyg2vfo40p" path="res://assets/shaders/background_shader.gdshader" id="11_4180k"]
 [ext_resource type="Texture2D" uid="uid://clax01noq1uob" path="res://assets/sprites/Phone.png" id="12_givkh"]
-[ext_resource type="Texture2D" uid="uid://bpg2f4f6cfsyw" path="res://assets/sprites/eyelid.png" id="12_jamk6"]
 [ext_resource type="Texture2D" uid="uid://j2hr5b8rqv4i" path="res://assets/sprites/room.png" id="13_5whs4"]
+[ext_resource type="Texture2D" uid="uid://fdpbs8rv4bp2" path="res://assets/sprites/eye_mask_alternative.png" id="15_givkh"]
 [ext_resource type="Script" uid="uid://bmcu5kp6ye5g0" path="res://state/music_manager.gd" id="16_6ixeq"]
 
 [sub_resource type="Animation" id="Animation_qp3ij"]
@@ -86,7 +86,7 @@ shader_parameter/edge_color = Color(0.17941675, 0.16744915, 0.29896355, 1)
 shader_parameter/background_color = Color(0.009564192, 0.009560853, 0.05744821, 1)
 shader_parameter/perlin_edge_color = Color(0.2473068, 0.30388558, 0.531288, 1)
 shader_parameter/perlin2_edge_color = Color(0.19206914, 0.13494182, 0.27731588, 1)
-shader_parameter/eyelid_texture = ExtResource("12_jamk6")
+shader_parameter/eyelid_texture = ExtResource("15_givkh")
 shader_parameter/room_texture = ExtResource("13_5whs4")
 shader_parameter/perlin_scale = 0.50000002049012
 shader_parameter/perlin_speed = 0.2
@@ -412,9 +412,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -866.0
-offset_top = -1080.0
-offset_right = 1054.0
+offset_left = -1366.0
+offset_top = -2080.0
+offset_right = 1554.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("12_givkh")

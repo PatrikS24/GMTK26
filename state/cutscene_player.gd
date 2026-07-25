@@ -7,7 +7,7 @@ class_name CutscenePlayer extends Control
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var hidden_ratio: float = 1.5
-var shown_ratio: float = 0.1
+var shown_ratio: float = -0.35
 
 func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
