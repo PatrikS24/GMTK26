@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://player/camera_controller.gd" id="3_06sgl"]
 [ext_resource type="Script" uid="uid://df85u7q31c1ld" path="res://state/hud.gd" id="6_4180k"]
 [ext_resource type="Script" uid="uid://x5iopploffcn" path="res://state/main_menu.gd" id="7_y8htd"]
+[ext_resource type="Script" uid="uid://h7g4fxa6fnew" path="res://state/game_over_screen.gd" id="8_jamk6"]
 [ext_resource type="Script" uid="uid://vuhiilaydigk" path="res://state/cutscene_player.gd" id="8_ovehu"]
 [ext_resource type="Script" uid="uid://cv75lnkykhqlt" path="res://state/pause_menu.gd" id="8_qp3ij"]
 [ext_resource type="Script" uid="uid://dg02owjd441yo" path="res://state/background.gd" id="10_h6yog"]
@@ -298,6 +299,48 @@ layout_mode = 2
 text = "Main menu"
 
 [node name="QuitButton" type="Button" parent="UI/CanvasLayer/PauseMenu/VBoxContainer" unique_id=584817619]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOverScreen" type="Control" parent="UI/CanvasLayer" unique_id=1483480784 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_jamk6")
+player = NodePath("../../../Game/Player")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/GameOverScreen" unique_id=625893404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -71.0
+offset_right = 43.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStatusLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=2065311567]
+layout_mode = 2
+
+[node name="HrsOfSleepLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=209774781]
+layout_mode = 2
+
+[node name="PlayAgainButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1509881956]
+layout_mode = 2
+text = "Play again"
+
+[node name="MainMenuButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1109110086]
+layout_mode = 2
+text = "Main menu"
+
+[node name="QuitButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=141921901]
 layout_mode = 2
 text = "Quit"
 

@@ -1,4 +1,4 @@
-extends Control
+class_name Hud extends Control
 
 @onready var fps_label: Label = $FpsLabel
 @onready var current_time_label: Label = $CurrentTimeLabel
@@ -20,5 +20,11 @@ func _process(_delta: float) -> void:
 	current_time_label.text = "Current time: %s" % format_time(player.get_countdown().get_current_time())
 	wake_up_time_label.text = "wake up at: %s" % format_time(player.get_countdown().get_wake_up_time())
 
-func format_time(time: float) -> String:
+static func format_time(time: float) -> String:
 	return "%02d:%02d" % [int(time / 3600) % 24, int(time / 60) % 60]
+
+static func format_minutes(time: float) -> String:
+	return "%d" % [int(time / 60) % 60]
+
+static func format_hours(time: float) -> String:
+	return "%d" % [int(time / 3600)]

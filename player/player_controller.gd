@@ -6,6 +6,8 @@ var current_velocity: Vector2 = Vector2(0.0, 0.0)
 
 @onready var countdown: Countdown = $Countdown
 
+
+
 func get_countdown() -> Countdown:
 	return countdown
 
