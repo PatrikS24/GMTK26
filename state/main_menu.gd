@@ -10,8 +10,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_game_button.pressed.connect(on_start_game)
+	settings_button.pressed.connect(_on_settings)
 	quit_button.pressed.connect(_quit)
 
+func _on_settings():
+	MainState.set_game_state(MainState.GameState.SETTINGS)
 
 func on_start_game():
 	MainState.set_game_state(MainState.GameState.CUTSCENE)

@@ -1,27 +1,23 @@
 [gd_scene format=3 uid="uid://currq2cjuv0k2"]
 
 [ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://player/player_controller.gd" id="1_niuxy"]
+[ext_resource type="Texture2D" uid="uid://cr2du7fttt2jo" path="res://assets/sprites/player_sprite.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://iy5be2y1ia0i" path="res://player/countdown.gd" id="2_rkbax"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mvpqy"]
-radius = 27.0
-
-[sub_resource type="Gradient" id="Gradient_niuxy"]
-colors = PackedColorArray(0.31904057, 0.54302305, 0.54341316, 1, 0.50106895, 0.28632915, 0.57708544, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ra83"]
-gradient = SubResource("Gradient_niuxy")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugfrd"]
+radius = 44.511234
 
 [node name="Player" type="CharacterBody2D" unique_id=1607564504]
 script = ExtResource("1_niuxy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=999861536]
-shape = SubResource("CircleShape2D_mvpqy")
+position = Vector2(-0.5, 1)
+shape = SubResource("CircleShape2D_ugfrd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1391763643]
-position = Vector2(0.49999952, 0)
-scale = Vector2(0.828125, 0.8125)
-texture = SubResource("GradientTexture2D_8ra83")
+position = Vector2(-7, 0)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_g1dw6")
 
 [node name="Countdown" type="Node" parent="." unique_id=1143242230]
 process_mode = 3

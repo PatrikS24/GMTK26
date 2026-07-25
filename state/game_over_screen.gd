@@ -15,7 +15,7 @@ func _ready() -> void:
 func update_result():
 	game_status_label.text = "You WIN!" if player.get_countdown().win_state == Countdown.WinState.WIN else "You Lose!"
 	var hrs_of_sleep = player.get_countdown().get_wake_up_time() - player.get_countdown().get_current_time()
-	hrs_of_sleep_label.text = "You got slept %s hours and %s minutes" % [Hud.format_hours(hrs_of_sleep), Hud.format_minutes(hrs_of_sleep)]
+	hrs_of_sleep_label.text = "You slept %s hours and %s minutes" % [Hud.format_hours(hrs_of_sleep), Hud.format_minutes(hrs_of_sleep)]
 
 func _to_main_menu():
 	MainState.set_game_state(MainState.GameState.MENU)

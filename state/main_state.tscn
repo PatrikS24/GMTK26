@@ -4,37 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://player/player.tscn" id="1_k6isv"]
 [ext_resource type="Script" uid="uid://v6udstsolhh7" path="res://state/state_manager.gd" id="1_omdrj"]
 [ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://player/camera_controller.gd" id="3_06sgl"]
+[ext_resource type="Theme" uid="uid://dnanbo7x5db5t" path="res://ui/base_theme.tres" id="5_yycia"]
 [ext_resource type="Script" uid="uid://df85u7q31c1ld" path="res://state/hud.gd" id="6_4180k"]
 [ext_resource type="Script" uid="uid://x5iopploffcn" path="res://state/main_menu.gd" id="7_y8htd"]
 [ext_resource type="Script" uid="uid://h7g4fxa6fnew" path="res://state/game_over_screen.gd" id="8_jamk6"]
 [ext_resource type="Script" uid="uid://vuhiilaydigk" path="res://state/cutscene_player.gd" id="8_ovehu"]
 [ext_resource type="Script" uid="uid://cv75lnkykhqlt" path="res://state/pause_menu.gd" id="8_qp3ij"]
+[ext_resource type="Script" uid="uid://57txhqdgao5n" path="res://state/settings_menu.gd" id="9_5whs4"]
 [ext_resource type="Script" uid="uid://dg02owjd441yo" path="res://state/background.gd" id="10_h6yog"]
 [ext_resource type="Shader" uid="uid://depnyg2vfo40p" path="res://assets/shaders/background_shader.gdshader" id="11_4180k"]
 [ext_resource type="Texture2D" uid="uid://bpg2f4f6cfsyw" path="res://assets/sprites/eyelid.png" id="12_jamk6"]
 [ext_resource type="Texture2D" uid="uid://j2hr5b8rqv4i" path="res://assets/sprites/room.png" id="13_5whs4"]
+[ext_resource type="Script" uid="uid://bmcu5kp6ye5g0" path="res://state/music_manager.gd" id="16_6ixeq"]
 
 [sub_resource type="Animation" id="Animation_qp3ij"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/PhoneHand:position")
+tracks/0/path = NodePath("../BackgroundController:eye_openness")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(951, 1152)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BackgroundController:eye_openness")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -51,9 +42,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.033333335, 6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_down_and_up_animation"
+}, {
 "args": [],
 "method": &"go_to_ingame"
 }]
@@ -61,22 +55,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/PhoneHand:position")
+tracks/1/path = NodePath("../BackgroundController:eye_openness")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 1.5333333, 2.6666667, 3.9666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(951, 2000), Vector2(951, 600), Vector2(951, 600), Vector2(951, 2000)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../BackgroundController:eye_openness")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335, 4.6666665, 5.9333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -105,7 +87,7 @@ shader_parameter/detail = 5
 shader_parameter/roughness = 0.394000018715
 shader_parameter/lacunarity = 2.494000070965
 shader_parameter/edge_color = Color(0.26594386, 0.25199443, 0.4280828, 1)
-shader_parameter/background_color = Color(0.064667515, 0.06463359, 0.19410169, 1)
+shader_parameter/background_color = Color(0.032887887, 0.032870263, 0.12888858, 1)
 shader_parameter/perlin_edge_color = Color(0.37315938, 0.4412296, 0.7080301, 1)
 shader_parameter/perlin2_edge_color = Color(0.28907627, 0.2115739, 0.40751037, 1)
 shader_parameter/eyelid_texture = ExtResource("12_jamk6")
@@ -197,40 +179,55 @@ player = NodePath("../Player")
 [node name="MainMenu" type="Control" parent="UI/CanvasLayer" unique_id=31555142]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1921.0
-offset_bottom = 1085.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_yycia")
 script = ExtResource("7_y8htd")
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/MainMenu" unique_id=174784790]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 78.0
+offset_right = 534.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 150
+text = "Sleepy Joe"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/MainMenu" unique_id=1111725625]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 116.0
-offset_top = 713.0
-offset_right = 352.0
-offset_bottom = -298.0
-grow_vertical = 2
+offset_left = 113.0
+offset_top = 300.0
+offset_right = 349.0
+offset_bottom = 455.0
 
 [node name="StartGameButton" type="Button" parent="UI/CanvasLayer/MainMenu/VBoxContainer" unique_id=1169518723]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Start Game"
+alignment = 0
 
 [node name="SettingsButton" type="Button" parent="UI/CanvasLayer/MainMenu/VBoxContainer" unique_id=1676956200]
 layout_mode = 2
 text = "Settings"
+alignment = 0
 
 [node name="QuitButton" type="Button" parent="UI/CanvasLayer/MainMenu/VBoxContainer" unique_id=479171875]
 layout_mode = 2
 text = "Quit"
+alignment = 0
 
 [node name="HUD" type="Control" parent="UI/CanvasLayer" unique_id=1058632053 node_paths=PackedStringArray("player")]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_yycia")
 script = ExtResource("6_4180k")
 player = NodePath("../../../Game/Player")
 
@@ -241,26 +238,23 @@ offset_top = 22.0
 offset_right = 65.0
 offset_bottom = 45.0
 
-[node name="TimeLeftLabel" type="Label" parent="UI/CanvasLayer/HUD" unique_id=379233246]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 51.0
-offset_right = 55.0
-offset_bottom = 74.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CanvasLayer/HUD" unique_id=469786476]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_constants/separation = 65
+alignment = 1
 
-[node name="CurrentTimeLabel" type="Label" parent="UI/CanvasLayer/HUD" unique_id=1484990510]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 76.0
-offset_right = 61.0
-offset_bottom = 99.0
+[node name="CurrentTimeLabel" type="Label" parent="UI/CanvasLayer/HUD/HBoxContainer" unique_id=1484990510]
+layout_mode = 2
 
-[node name="WakeUpTimeLabel" type="Label" parent="UI/CanvasLayer/HUD" unique_id=465508403]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 24.0
-offset_right = 155.0
-offset_bottom = 47.0
+[node name="WakeUpTimeLabel" type="Label" parent="UI/CanvasLayer/HUD/HBoxContainer" unique_id=465508403]
+layout_mode = 2
+
+[node name="TimeLeftLabel" type="Label" parent="UI/CanvasLayer/HUD/HBoxContainer" unique_id=379233246]
+layout_mode = 2
 
 [node name="PauseMenu" type="Control" parent="UI/CanvasLayer" unique_id=1711316412]
 process_mode = 3
@@ -270,6 +264,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_yycia")
 script = ExtResource("8_qp3ij")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/PauseMenu" unique_id=15894308]
@@ -309,6 +304,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_yycia")
 script = ExtResource("8_jamk6")
 player = NodePath("../../../Game/Player")
 
@@ -346,6 +342,45 @@ text = "Main menu"
 layout_mode = 2
 text = "Quit"
 
+[node name="Settings" type="Control" parent="UI/CanvasLayer" unique_id=1041098574]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_yycia")
+script = ExtResource("9_5whs4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/Settings" unique_id=654168416]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -42.0
+offset_right = 180.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/Settings/VBoxContainer" unique_id=101950780]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="UI/CanvasLayer/Settings/VBoxContainer" unique_id=40742952]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="BackButton" type="Button" parent="UI/CanvasLayer/Settings/VBoxContainer" unique_id=608463092]
+layout_mode = 2
+text = "Back"
+
 [node name="Cutscene" type="Control" parent="." unique_id=2146850898]
 layout_mode = 3
 anchors_preset = 0
@@ -357,26 +392,29 @@ libraries/ = SubResource("AnimationLibrary_ovehu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Cutscene" unique_id=1769544555]
 
-[node name="Control" type="Control" parent="Cutscene/CanvasLayer" unique_id=616927704]
+[node name="HandHandle" type="Control" parent="Cutscene/CanvasLayer" unique_id=616927704]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 1)
 mouse_filter = 2
 
-[node name="PhoneHand" type="TextureRect" parent="Cutscene/CanvasLayer/Control" unique_id=2006581225]
+[node name="PhoneHand" type="TextureRect" parent="Cutscene/CanvasLayer/HandHandle" unique_id=2006581225]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.512
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.512
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.04004
-offset_top = 72.0
-offset_right = 31.95996
-offset_bottom = 136.00073
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = SubResource("GradientTexture2D_24ut0")
 
 [node name="BackgroundController" type="CanvasLayer" parent="." unique_id=1998990285 node_paths=PackedStringArray("camera")]
@@ -394,3 +432,8 @@ grow_vertical = 2
 
 [node name="EyeAnimationPlayer" type="AnimationPlayer" parent="BackgroundController" unique_id=1182973758]
 libraries/ = SubResource("AnimationLibrary_5whs4")
+
+[node name="MusicManager" type="Node" parent="." unique_id=595544037]
+script = ExtResource("16_6ixeq")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=147649808]

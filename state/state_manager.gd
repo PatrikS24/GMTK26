@@ -6,8 +6,10 @@ extends Node
 @onready var cutscene: CutscenePlayer = $Cutscene
 @onready var pause_menu: Control = $UI/CanvasLayer/PauseMenu
 @onready var game_over_screen: GameOverScreen = $UI/CanvasLayer/GameOverScreen
+@onready var settings_menu: Control = $UI/CanvasLayer/Settings
 
 
+@onready var music_manager: MusicManager = $MusicManager
 
 @export var attack_manager: AttackManager
 
@@ -22,6 +24,7 @@ func _ready() -> void:
 	MainState.onMenu.connect(on_menu)
 	MainState.onPause.connect(on_pause)
 	MainState.onGameOver.connect(on_game_over)
+	MainState.onSettings.connect(on_settings)
 	MainState.set_game_state(MainState.GameState.MENU)
 
 func _process(_delta: float) -> void:
@@ -38,7 +41,9 @@ func on_menu():
 	cutscene.visible = false
 	pause_menu.visible = false
 	game_over_screen.visible = false
+	settings_menu.visible = false
 	attack_manager.stop_spawning()
+	music_manager.play_song(MusicManager.Song.MAIN_MENU)
 
 func on_cutscene():
 	game.visible = false
@@ -47,7 +52,7 @@ func on_cutscene():
 	cutscene.visible = true
 	pause_menu.visible = false
 	game_over_screen.visible = false
-
+	settings_menu.visible = false
 	cutscene.play_cutscene()
 
 func on_in_game():
@@ -57,10 +62,11 @@ func on_in_game():
 	cutscene.visible = false
 	pause_menu.visible = false
 	game_over_screen.visible = false
-
+	settings_menu.visible = false
 	attack_manager.start_spawning()
 	if background_controller.eye_openness > 0.1:
 		background_controller.close_eyes()
+	music_manager.play_song(MusicManager.Song.IN_GAME)
 
 func on_pause():
 	game.visible = false
@@ -69,7 +75,7 @@ func on_pause():
 	cutscene.visible = false
 	pause_menu.visible = true
 	game_over_screen.visible = false
-
+	settings_menu.visible = false
 	attack_manager.stop_spawning()
 	background_controller.open_eyes()
 
@@ -80,6 +86,16 @@ func on_game_over():
 	cutscene.visible = false
 	pause_menu.visible = false
 	game_over_screen.visible = true
+	settings_menu.visible = false
 	game_over_screen.update_result()
 	attack_manager.stop_spawning()
 	background_controller.open_eyes()
+
+func on_settings():
+	game.visible = false
+	hud.visible = false
+	main_menu.visible = false
+	cutscene.visible = false
+	pause_menu.visible = false
+	game_over_screen.visible = false
+	settings_menu.visible = true

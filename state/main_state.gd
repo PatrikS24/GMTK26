@@ -1,6 +1,6 @@
 extends Node
 
-enum GameState {MENU, CUTSCENE, IN_GAME, PAUSE, GAME_OVER}
+enum GameState {MENU, CUTSCENE, IN_GAME, PAUSE, GAME_OVER, SETTINGS}
 
 var state: GameState = GameState.MENU
 
@@ -11,6 +11,7 @@ signal onInGame
 signal onCutScene
 signal onPause
 signal onGameOver
+signal onSettings
 
 signal damageDealt
 
@@ -23,7 +24,6 @@ func set_game_state(new_state: GameState):
 		GameState.MENU:
 			state = GameState.MENU
 			onMenu.emit()
-			print("Emitted")
 		GameState.CUTSCENE:
 			state = GameState.CUTSCENE
 			onCutScene.emit()
@@ -36,10 +36,12 @@ func set_game_state(new_state: GameState):
 		GameState.GAME_OVER:
 			state = GameState.GAME_OVER
 			onGameOver.emit()
+		GameState.SETTINGS:
+			state = GameState.SETTINGS
+			onSettings.emit()
 
 func get_state():
 	return state
-
 
 func onDamageDealt():
 	damageDealt.emit()

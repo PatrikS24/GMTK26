@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://dnanbo7x5db5t"]
+
+[ext_resource type="FontFile" uid="uid://fsov41cl7c13" path="res://assets/fonts/Sexsmith.otf" id="1_d8awb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yycia"]
+content_margin_left = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1lg2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_d8awb")
+default_font_size = 40
+Button/styles/hover = SubResource("StyleBoxFlat_yycia")
+Button/styles/normal = SubResource("StyleBoxFlat_p1lg2")
