@@ -10,7 +10,7 @@ height = 76.7001
 [node name="HomeingWeapon" unique_id=1300584643 instance=ExtResource("1_t67nt")]
 script = ExtResource("2_tr1li")
 turn_speed = 1.0
-speed = 300.0
+speed = 350.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
 rotation = 1.5707964

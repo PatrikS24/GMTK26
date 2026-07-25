@@ -328,9 +328,11 @@ grow_vertical = 2
 
 [node name="GameStatusLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=2065311567]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="HrsOfSleepLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=209774781]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1509881956]
 layout_mode = 2
