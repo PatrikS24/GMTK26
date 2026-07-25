@@ -6,8 +6,16 @@ class_name CutscenePlayer extends Control
 @onready var player: Player = $"../Game/Player"
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
+var hidden_ratio: float = 1.5
+var shown_ratio: float = 0.1
+
 func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
+	var screen_height = get_viewport_rect().size.y
+
+	var hidden_pos = screen_height * hidden_ratio
+	var middle_pos = screen_height * shown_ratio
+	phone_hand.position.y = hidden_pos
 
 func play_cutscene():
 	animation_player.play("cutscene")
@@ -22,9 +30,9 @@ func play_down_and_up_animation():
 	var screen_height = get_viewport_rect().size.y
 
 	# Define positions using percentages
-	var hidden_pos = screen_height * 1.5 # 110% down (completely hidden)
-	var middle_pos = screen_height * 0.5 # 50% down (dead center)
-
+	var hidden_pos = screen_height * hidden_ratio
+	var middle_pos = screen_height * shown_ratio
+	phone_hand.position.y = hidden_pos
 	# Reset position immediately to hidden before running to prevent overlapping glitches
 	position.y = hidden_pos
 

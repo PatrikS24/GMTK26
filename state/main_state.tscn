@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://57txhqdgao5n" path="res://state/settings_menu.gd" id="9_5whs4"]
 [ext_resource type="Script" uid="uid://dg02owjd441yo" path="res://state/background.gd" id="10_h6yog"]
 [ext_resource type="Shader" uid="uid://depnyg2vfo40p" path="res://assets/shaders/background_shader.gdshader" id="11_4180k"]
+[ext_resource type="Texture2D" uid="uid://clax01noq1uob" path="res://assets/sprites/Phone.png" id="12_givkh"]
 [ext_resource type="Texture2D" uid="uid://bpg2f4f6cfsyw" path="res://assets/sprites/eyelid.png" id="12_jamk6"]
 [ext_resource type="Texture2D" uid="uid://j2hr5b8rqv4i" path="res://assets/sprites/room.png" id="13_5whs4"]
 [ext_resource type="Script" uid="uid://bmcu5kp6ye5g0" path="res://state/music_manager.gd" id="16_6ixeq"]
@@ -70,11 +71,6 @@ _data = {
 &"RESET": SubResource("Animation_qp3ij"),
 &"cutscene": SubResource("Animation_y8htd")
 }
-
-[sub_resource type="Gradient" id="Gradient_jamk6"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_24ut0"]
-gradient = SubResource("Gradient_jamk6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6yog"]
 shader = ExtResource("11_4180k")
@@ -416,12 +412,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -64.0
-offset_right = 32.0
+offset_left = -866.0
+offset_top = -1080.0
+offset_right = 1054.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("GradientTexture2D_24ut0")
+texture = ExtResource("12_givkh")
 
 [node name="BackgroundController" type="CanvasLayer" parent="." unique_id=1998990285 node_paths=PackedStringArray("camera")]
 layer = -1

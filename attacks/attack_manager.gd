@@ -23,7 +23,7 @@ func _on_do_new_attack_timer_timeout() -> void:
 		do_new_attack_timer.stop()
 		return
 	var index = randi() % attacks.size()
-	attacks[index].spawn_weapons()
+	attacks[3].spawn_weapons()
 
 
 func get_rand_spawn_pos_circle(distance_from_player: int = spawn_circle_radius) -> Vector2:
@@ -49,6 +49,16 @@ func get_positions_on_y_axis(num_of_points: int, height: int, left_side: bool, d
 	var height_diff = height / float(num_of_points)
 	for i in range(num_of_points):
 		positions.append(Vector2(x_pos, bottom_y - height_diff * i))
+	return positions
+
+func get_positions_on_x_axis(num_of_points: int, width: int, up: bool, distance_from_player: int = spawn_circle_radius) -> Array[Vector2]:
+	var dir_sign = -1 if up else 1
+	var y_pos = player.global_position.y + distance_from_player * dir_sign
+	var positions: Array[Vector2] = []
+	var left_x = player.global_position.x + width / 2.0
+	var width_diff = width / float(num_of_points)
+	for i in range(num_of_points):
+		positions.append(Vector2(left_x - width_diff * i, y_pos))
 	return positions
 
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://7ravxterucx1"]
+
+[ext_resource type="PackedScene" uid="uid://wbehabgkpi3m" path="res://attacks/base_attack.tscn" id="1_825s0"]
+[ext_resource type="Script" uid="uid://bhh1p6g5081jd" path="res://laser_attack.gd" id="2_m5psm"]
+[ext_resource type="PackedScene" uid="uid://bquxwajgbbwpd" path="res://attacks/weapons/laser_weapon.tscn" id="3_m5psm"]
+
+[node name="LaserAttack" unique_id=1820580231 instance=ExtResource("1_825s0")]
+script = ExtResource("2_m5psm")
+weapon_type = ExtResource("3_m5psm")
+weapons_per_attack = 2
