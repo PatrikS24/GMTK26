@@ -3,7 +3,7 @@ extends Attack
 
 func spawn_weapons():
 	var left = bool(randi()%2)
-	var positions = manager.get_positions_on_y_axis(weapons_per_attack, 1500, left, 1000)
+	var positions = manager.get_positions_on_y_axis(weapons_per_attack, 2000, left, 1000)
 	for pos in positions:
 		var weapon = _create_weapon() as WaveWeapon
 		weapon.global_position = pos

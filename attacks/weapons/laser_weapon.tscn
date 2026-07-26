@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_67apd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2hho"]
-size = Vector2(20, 6000)
+size = Vector2(20, 10000)
 
 [sub_resource type="Gradient" id="Gradient_0g75q"]
 offsets = PackedFloat32Array(0, 0.5151515, 1)
@@ -12,7 +12,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0.8352941, 0, 0.2, 1, 0.8352941, 0, 0.2, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h2hho"]
 gradient = SubResource("Gradient_0g75q")
 width = 32
-height = 6000
+height = 10000
 
 [node name="LaserWeapon" unique_id=1300584643 instance=ExtResource("1_67apd")]
 

@@ -54,9 +54,12 @@ func get_positions_on_y_axis(num_of_points: int, height: int, left_side: bool, d
 	var x_pos = player.global_position.x + distance_from_player * dir_sign
 	var positions: Array[Vector2] = []
 	var bottom_y = player.global_position.y + height / 2.0
-	var height_diff = height / float(num_of_points)
+	var spacing = height / float(num_of_points - 1)
 	for i in range(num_of_points):
-		positions.append(Vector2(x_pos, bottom_y - height_diff * i))
+		positions.append(Vector2(
+			x_pos,
+			bottom_y - spacing * i
+		))
 	return positions
 
 func get_positions_on_x_axis(num_of_points: int, width: int, up: bool, distance_from_player: int = spawn_circle_radius) -> Array[Vector2]:

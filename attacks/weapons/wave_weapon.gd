@@ -16,16 +16,21 @@ var start_pos: Vector2
 func _physics_process(delta):
 	if attacking:
 		time += delta
-
 		var forward = direction * speed * time
 		var sideways = direction.orthogonal() * sin(time * frequency + phase) * amplitude
-
 		global_position = start_pos + forward + sideways
+
 		var dt = 0.01
 		var next_time = time + dt
 		var next_pos = start_pos + direction * speed * next_time + direction.orthogonal() * sin(next_time * frequency + phase) * amplitude
 
-		look_at(next_pos)
+		var to_next = next_pos - global_position
+		if direction.x < 0:
+			scale.x = -1
+			rotation = (-to_next).angle()
+		else:
+			scale.x = 1
+			rotation = to_next.angle()
 
 
 func init_wave(left: bool, start_position: Vector2, offset: float):
@@ -37,7 +42,7 @@ func create_children(scene: PackedScene, left: bool):
 	var dir = Vector2.LEFT if left else Vector2.RIGHT
 	for i in range(num_of_children):
 		var new_weapon := scene.instantiate() as WaveWeapon
-		new_weapon.global_position = start_pos + dir * 150 * (1+i)
+		new_weapon.global_position = start_pos + dir * 210 * (1+i)
 		get_tree().root.add_child(new_weapon)
 
 		new_weapon.init_wave(left, new_weapon.global_position, -(i + 1) * phase_offset)

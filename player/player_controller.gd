@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export var acceleration: float = 0.15
-@export var top_speed: float = 400.0
+@export var top_speed: float = 400.0 * 1.3
 var current_velocity: Vector2 = Vector2(0.0, 0.0)
 
 @onready var countdown: Countdown = $Countdown

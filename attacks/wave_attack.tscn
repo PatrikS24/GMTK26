@@ -7,4 +7,3 @@
 [node name="WaveAttack" unique_id=1820580231 instance=ExtResource("1_m2813")]
 script = ExtResource("2_3uax7")
 weapon_type = ExtResource("3_3uax7")
-weapons_per_attack = 3
