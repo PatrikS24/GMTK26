@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bso8a0h3xlpk5" path="res://melatonin_power_up.gd" id="2_miqus"]
 [ext_resource type="Script" uid="uid://cs5fivl2lu513" path="res://attacks/weapons/pulsing_size.gd" id="3_miqus"]
 [ext_resource type="Texture2D" uid="uid://ghp0q1u0fqt5" path="res://assets/sprites/melatonin.png" id="3_qvsuw"]
+[ext_resource type="AudioStream" uid="uid://knyhqmk52flo" path="res://assets/sfx/gulp.wav" id="5_wvau3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miqus"]
 size = Vector2(42.18506, 80.54502)
@@ -26,3 +27,6 @@ texture = ExtResource("3_qvsuw")
 script = ExtResource("3_miqus")
 curve = SubResource("Curve_2hrla")
 actual_scale = Vector2(0.145, 0.145)
+
+[node name="GulpAudioPlayer" type="AudioStreamPlayer2D" parent="." index="3" unique_id=1951211197]
+stream = ExtResource("5_wvau3")

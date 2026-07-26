@@ -182,6 +182,7 @@ player = NodePath("../Player")
 
 [node name="MainMenu" type="Control" parent="UI/CanvasLayer" unique_id=31555142]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -317,6 +318,16 @@ theme = ExtResource("5_yycia")
 script = ExtResource("8_jamk6")
 player = NodePath("../../../Game/Player")
 
+[node name="Panel" type="Panel" parent="UI/CanvasLayer/GameOverScreen" unique_id=1187720284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.311, 0.237)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/GameOverScreen" unique_id=625893404]
 layout_mode = 1
 anchors_preset = 8
@@ -324,19 +335,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -71.0
-offset_right = 43.0
-offset_bottom = 43.0
+offset_left = -65.0
+offset_top = -104.0
+offset_right = 65.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameStatusLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=2065311567]
 layout_mode = 2
+text = "Sample text"
 horizontal_alignment = 1
 
 [node name="HrsOfSleepLabel" type="Label" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=209774781]
 layout_mode = 2
+text = "Sample text"
 horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=1509881956]
@@ -348,6 +361,7 @@ layout_mode = 2
 text = "Main menu"
 
 [node name="QuitButton" type="Button" parent="UI/CanvasLayer/GameOverScreen/VBoxContainer" unique_id=141921901]
+visible = false
 layout_mode = 2
 text = "Quit"
 
@@ -400,6 +414,7 @@ process_mode = 3
 libraries/ = SubResource("AnimationLibrary_ovehu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Cutscene" unique_id=1769544555]
+visible = false
 
 [node name="HandHandle" type="Control" parent="Cutscene/CanvasLayer" unique_id=616927704]
 layout_mode = 3

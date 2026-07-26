@@ -35,11 +35,11 @@ manager = NodePath("../..")
 [node name="PowerUps" type="Node" parent="." unique_id=291798023]
 
 [node name="MelatoninPowerUp" parent="PowerUps" unique_id=1471740857 node_paths=PackedStringArray("manager") instance=ExtResource("6_eekh4")]
-min_distance = 1500
-max_distance = 2500
+min_distance = 700
+max_distance = 900
 manager = NodePath("../..")
 weapon_type = ExtResource("7_kkwr8")
-weapons_per_attack = 2
+weapons_per_attack = 4
 
 [node name="DoNewAttackTimer" type="Timer" parent="." unique_id=478730614]
 wait_time = 3.5

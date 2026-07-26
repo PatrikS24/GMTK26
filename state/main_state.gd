@@ -15,6 +15,7 @@ signal onSettings
 
 signal damageDealt
 signal destroyWeapons
+signal atePills
 
 func set_game_state(new_state: GameState):
 	if new_state != GameState.IN_GAME:
@@ -48,3 +49,6 @@ func get_state():
 
 func onDamageDealt():
 	damageDealt.emit()
+
+func on_pills_eaten():
+	atePills.emit()

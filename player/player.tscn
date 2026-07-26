@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpupi2sxugrk" path="res://player/player_controller.gd" id="1_niuxy"]
 [ext_resource type="Texture2D" uid="uid://cr2du7fttt2jo" path="res://assets/sprites/player_sprite.png" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://iy5be2y1ia0i" path="res://player/countdown.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://be0868uqxaehk" path="res://player/hurt_sound_player.gd" id="4_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugfrd"]
 radius = 44.511234
@@ -28,5 +29,8 @@ process_mode = 3
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="HurtSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1291160464]
+script = ExtResource("4_yw30f")
 
 [connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]
