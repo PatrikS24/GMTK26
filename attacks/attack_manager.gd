@@ -6,6 +6,8 @@ class_name AttackManager extends Node
 
 @onready var do_new_attack_timer: Timer = $DoNewAttackTimer
 
+var last_attack: int = -1
+
 func start_spawning():
 	if do_new_attack_timer.paused == true:
 		do_new_attack_timer.paused = false
@@ -23,6 +25,12 @@ func _on_do_new_attack_timer_timeout() -> void:
 		do_new_attack_timer.stop()
 		return
 	var index = randi() % attacks.size()
+	if last_attack == -1:
+		index = 1
+	else:
+		if index == last_attack:
+			index = (index + 1) % attacks.size()
+	last_attack = index
 	attacks[index].spawn_weapons()
 
 

@@ -5,17 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://csn2r2o4qw181" path="res://assets/sprites/iphone.png" id="3_hpa3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5uw"]
-size = Vector2(38.35005, 90.13371)
+size = Vector2(42.19025, 92.04567)
 
 [node name="AimedWeapon" unique_id=1300584643 instance=ExtResource("1_ag5uw")]
 speed = 175.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
-position = Vector2(-0.9587522, -0.95886797)
+position = Vector2(-1.9147308, -4.1787143e-08)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_ag5uw")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1983737595]
-position = Vector2(8.628761, 0)
+position = Vector2(-1.9175014, 8.629824)
+rotation = 1.5707964
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_hpa3h")
 script = ExtResource("3_5ei4w")
+spin_speed = 0.0

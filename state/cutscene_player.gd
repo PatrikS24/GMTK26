@@ -14,7 +14,6 @@ func _ready() -> void:
 	var screen_height = get_viewport_rect().size.y
 
 	var hidden_pos = screen_height * hidden_ratio
-	var middle_pos = screen_height * shown_ratio
 	phone_hand.position.y = hidden_pos
 
 func play_cutscene():

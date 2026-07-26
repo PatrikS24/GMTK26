@@ -9,6 +9,7 @@ size = Vector2(29.72129, 28.76608)
 [node name="WaveWeapon" unique_id=1300584643 instance=ExtResource("1_vv8rt")]
 script = ExtResource("2_qk3im")
 num_of_children = 10
+damage = 2.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
 position = Vector2(0.47937658, 0)

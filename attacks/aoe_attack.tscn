@@ -7,4 +7,4 @@
 [node name="AoeAttack" unique_id=1820580231 instance=ExtResource("1_fi4sj")]
 script = ExtResource("2_r52fu")
 weapon_type = ExtResource("3_r52fu")
-weapons_per_attack = 20
+weapons_per_attack = 80

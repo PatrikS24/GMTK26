@@ -13,5 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 	player_in_area = body
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	player_in_area = null

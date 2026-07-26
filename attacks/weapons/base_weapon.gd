@@ -7,7 +7,7 @@ var attacking: bool = false
 var fast_mode_speed: float = speed * 1.5
 
 func _ready() -> void:
-	MainState.onMenu.connect(destroy)
+	MainState.destroyWeapons.connect(destroy)
 
 func _physics_process(delta: float) -> void:
 	if attacking:

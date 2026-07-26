@@ -3,7 +3,7 @@ extends Attack
 
 func spawn_weapons():
 	var min_distance = 450
-	var distance = 1500
+	var distance = 2500
 	var weapons: Array[Weapon] = []
 	for i in range(weapons_per_attack):
 		var weapon = _create_weapon()
@@ -11,7 +11,7 @@ func spawn_weapons():
 		weapon.global_position = rand_spawn_pos
 		var valid := true
 		for aoe in weapons:
-			if (weapon.global_position - aoe.global_position).length() < 100:
+			if (weapon.global_position - aoe.global_position).length() < 120.0:
 				weapon.queue_free()
 				valid = false
 		if valid: weapons.append(weapon)

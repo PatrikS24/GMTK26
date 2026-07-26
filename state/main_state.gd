@@ -14,6 +14,7 @@ signal onGameOver
 signal onSettings
 
 signal damageDealt
+signal destroyWeapons
 
 func set_game_state(new_state: GameState):
 	if new_state != GameState.IN_GAME:
@@ -24,6 +25,7 @@ func set_game_state(new_state: GameState):
 		GameState.MENU:
 			state = GameState.MENU
 			onMenu.emit()
+			destroyWeapons.emit()
 		GameState.CUTSCENE:
 			state = GameState.CUTSCENE
 			onCutScene.emit()
@@ -36,6 +38,7 @@ func set_game_state(new_state: GameState):
 		GameState.GAME_OVER:
 			state = GameState.GAME_OVER
 			onGameOver.emit()
+			destroyWeapons.emit()
 		GameState.SETTINGS:
 			state = GameState.SETTINGS
 			onSettings.emit()
