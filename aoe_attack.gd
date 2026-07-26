@@ -11,7 +11,7 @@ func spawn_weapons():
 		weapon.global_position = rand_spawn_pos
 		var valid := true
 		for aoe in weapons:
-			if (weapon.global_position - aoe.global_position).length() < 120.0:
+			if (weapon.global_position - aoe.global_position).length() < 500.0:
 				weapon.queue_free()
 				valid = false
 		if valid: weapons.append(weapon)
