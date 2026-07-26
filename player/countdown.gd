@@ -33,6 +33,7 @@ func add_time(time: float):
 func remove_time(time: float):
 	var remaining = timer.time_left
 	remaining -= time
+	remaining = clampf(remaining, 0.001, 10000.0)
 	timer.start(remaining)
 
 func restart_timer():

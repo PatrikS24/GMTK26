@@ -43,6 +43,7 @@ func on_menu():
 	game_over_screen.visible = false
 	settings_menu.visible = false
 	attack_manager.stop_spawning()
+	music_manager.unpause_music()
 	music_manager.play_song(MusicManager.Song.MAIN_MENU)
 
 func on_cutscene():
@@ -66,7 +67,9 @@ func on_in_game():
 	attack_manager.start_spawning()
 	if background_controller.eye_openness > 0.1:
 		background_controller.close_eyes()
+	music_manager.unpause_music()
 	music_manager.play_song(MusicManager.Song.IN_GAME)
+
 
 func on_pause():
 	game.visible = false
@@ -78,6 +81,7 @@ func on_pause():
 	settings_menu.visible = false
 	attack_manager.stop_spawning()
 	background_controller.open_eyes()
+	music_manager.pause_music()
 
 func on_game_over():
 	game.visible = false

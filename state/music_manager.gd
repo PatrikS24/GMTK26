@@ -16,3 +16,9 @@ func play_song(song: Song):
 		music_player.stream = playlist[song]
 		music_player.play()
 		current_song_index = song
+
+func pause_music():
+	music_player.stream_paused = true
+
+func unpause_music():
+	music_player.stream_paused = false

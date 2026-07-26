@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://currq2cjuv0k2" path="res://player/player.tscn" id="1_k6isv"]
 [ext_resource type="Script" uid="uid://v6udstsolhh7" path="res://state/state_manager.gd" id="1_omdrj"]
 [ext_resource type="Script" uid="uid://qxv5v0stm1gx" path="res://player/camera_controller.gd" id="3_06sgl"]
+[ext_resource type="Script" uid="uid://bl344q422jrm0" path="res://state/camera_shaker.gd" id="4_fmsqh"]
 [ext_resource type="Theme" uid="uid://dnanbo7x5db5t" path="res://ui/base_theme.tres" id="5_yycia"]
 [ext_resource type="Script" uid="uid://df85u7q31c1ld" path="res://state/hud.gd" id="6_4180k"]
 [ext_resource type="Script" uid="uid://x5iopploffcn" path="res://state/main_menu.gd" id="7_y8htd"]
@@ -82,10 +83,10 @@ shader_parameter/morph_speed = 0.1970000093575
 shader_parameter/detail = 5
 shader_parameter/roughness = 0.394000018715
 shader_parameter/lacunarity = 2.494000070965
-shader_parameter/edge_color = Color(0.17941675, 0.16744915, 0.29896355, 1)
-shader_parameter/background_color = Color(0.009564192, 0.009560853, 0.05744821, 1)
-shader_parameter/perlin_edge_color = Color(0.2473068, 0.30388558, 0.531288, 1)
-shader_parameter/perlin2_edge_color = Color(0.19206914, 0.13494182, 0.27731588, 1)
+shader_parameter/edge_color = Color(0.07240591, 0.066161506, 0.13777179, 1)
+shader_parameter/background_color = Color(0, 0, 0, 1)
+shader_parameter/perlin_edge_color = Color(0.12115369, 0.15909585, 0.29642427, 1)
+shader_parameter/perlin2_edge_color = Color(0.11571392, 0.07623913, 0.1748819, 1)
 shader_parameter/eyelid_texture = ExtResource("15_givkh")
 shader_parameter/room_texture = ExtResource("13_5whs4")
 shader_parameter/perlin_scale = 0.50000002049012
@@ -170,6 +171,7 @@ script = ExtResource("3_06sgl")
 target = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="Game/CameraController" unique_id=1101314332]
+script = ExtResource("4_fmsqh")
 
 [node name="AttackManager" parent="Game" unique_id=976077207 node_paths=PackedStringArray("player") instance=ExtResource("1_06sgl")]
 player = NodePath("../Player")
@@ -196,7 +198,7 @@ offset_top = 78.0
 offset_right = 534.0
 offset_bottom = 259.0
 theme_override_font_sizes/font_size = 150
-text = "Sleepy Joseph"
+text = "The Insomniac"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/MainMenu" unique_id=1111725625]
 layout_mode = 1
@@ -217,7 +219,9 @@ text = "Settings"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="UI/CanvasLayer/MainMenu/VBoxContainer" unique_id=479171875]
+visible = false
 layout_mode = 2
+disabled = true
 text = "Quit"
 alignment = 0
 
@@ -234,6 +238,7 @@ script = ExtResource("6_4180k")
 player = NodePath("../../../Game/Player")
 
 [node name="FpsLabel" type="Label" parent="UI/CanvasLayer/HUD" unique_id=1594056062]
+visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = 22.0
@@ -296,7 +301,9 @@ layout_mode = 2
 text = "Main menu"
 
 [node name="QuitButton" type="Button" parent="UI/CanvasLayer/PauseMenu/VBoxContainer" unique_id=584817619]
+visible = false
 layout_mode = 2
+disabled = true
 text = "Quit"
 
 [node name="GameOverScreen" type="Control" parent="UI/CanvasLayer" unique_id=1483480784 node_paths=PackedStringArray("player")]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d0rl3i0awhnf7"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_2hrla"]
+[ext_resource type="Script" uid="uid://bso8a0h3xlpk5" path="res://melatonin_power_up.gd" id="2_miqus"]
+[ext_resource type="Script" uid="uid://cs5fivl2lu513" path="res://attacks/weapons/pulsing_size.gd" id="3_miqus"]
+[ext_resource type="Texture2D" uid="uid://ghp0q1u0fqt5" path="res://assets/sprites/melatonin.png" id="3_qvsuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miqus"]
+size = Vector2(42.18506, 80.54502)
+
+[sub_resource type="Curve" id="Curve_2hrla"]
+_limits = [1.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50583655, 1.2553192), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="MelatoninPowerUp" unique_id=1300584643 instance=ExtResource("1_2hrla")]
+script = ExtResource("2_miqus")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+position = Vector2(0, -4.5722453e-07)
+shape = SubResource("RectangleShape2D_miqus")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1983737595]
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("3_qvsuw")
+script = ExtResource("3_miqus")
+curve = SubResource("Curve_2hrla")
+actual_scale = Vector2(0.145, 0.145)

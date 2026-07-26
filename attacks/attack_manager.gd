@@ -3,22 +3,27 @@ class_name AttackManager extends Node
 @export var player: Node2D
 @export var spawn_circle_radius: int = 700
 @export var attacks: Array[Attack]
+@export var power_ups: Array[Attack]
 
 @onready var do_new_attack_timer: Timer = $DoNewAttackTimer
+@onready var spawn_powerups_timer: Timer = $SpawnPowerupsTimer
 
 var last_attack: int = -1
 
 func start_spawning():
 	if do_new_attack_timer.paused == true:
 		do_new_attack_timer.paused = false
+		spawn_powerups_timer.paused = false
 
 	if do_new_attack_timer.is_stopped():
 		do_new_attack_timer.start()
+		spawn_powerups_timer.start()
 		_on_do_new_attack_timer_timeout()
 
 
 func stop_spawning():
 	do_new_attack_timer.paused = true
+	spawn_powerups_timer.paused = true
 
 func _on_do_new_attack_timer_timeout() -> void:
 	if MainState.state != MainState.GameState.IN_GAME:
@@ -33,6 +38,12 @@ func _on_do_new_attack_timer_timeout() -> void:
 	last_attack = index
 	attacks[index].spawn_weapons()
 
+func _on_spawn_powerups_timer_timeout() -> void:
+	if MainState.state != MainState.GameState.IN_GAME:
+		spawn_powerups_timer.stop()
+		return
+	var index = randi() % power_ups.size()
+	power_ups[index].spawn_weapons()
 
 func get_rand_spawn_pos_circle(distance_from_player: int = spawn_circle_radius) -> Vector2:
 	return player.global_position + Vector2.from_angle(randf() * 2 * PI).normalized() * distance_from_player

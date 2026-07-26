@@ -4,7 +4,7 @@ extends Sprite2D
 
 
 var time := 0.0
-var speed = 1.5
+@export var speed = 1.5
 @export var actual_scale: Vector2 = Vector2(0.25, 0.25)
 
 func _physics_process(delta):
