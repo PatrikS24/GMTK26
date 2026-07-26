@@ -14,3 +14,4 @@ default_font = ExtResource("1_d8awb")
 default_font_size = 40
 Button/styles/hover = SubResource("StyleBoxFlat_yycia")
 Button/styles/normal = SubResource("StyleBoxFlat_p1lg2")
+Button/styles/pressed = SubResource("StyleBoxFlat_p1lg2")

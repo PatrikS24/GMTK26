@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c15veq7qpajm8"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_tadcb"]
+[ext_resource type="Script" uid="uid://dtftmn578yqjh" path="res://aoe_weapon.gd" id="2_mnprn"]
+[ext_resource type="Texture2D" uid="uid://bcvtpt16f6h3b" path="res://assets/sprites/Speaker.png" id="3_g5det"]
+[ext_resource type="Script" uid="uid://cs5fivl2lu513" path="res://attacks/weapons/pulsing_size.gd" id="3_mnprn"]
+[ext_resource type="Shader" uid="uid://cl6tm3vfaudfi" path="res://assets/shaders/aoe_shader.gdshader" id="4_2gbmv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_givkh"]
+radius = 69.05673
+
+[sub_resource type="Curve" id="Curve_mnprn"]
+_limits = [1.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.16279072, 1.1853036), 0.0, 0.0, 0, 0, Vector2(0.43502054, 1.115016), 0.0, 0.0, 0, 0, Vector2(0.502052, 1.1980832), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38lad"]
+shader = ExtResource("4_2gbmv")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g5det"]
+
+[node name="AoeWeapon" unique_id=1300584643 instance=ExtResource("1_tadcb")]
+script = ExtResource("2_mnprn")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+shape = SubResource("CircleShape2D_givkh")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1983737595]
+z_index = 1
+position = Vector2(0, 16.612)
+scale = Vector2(0.252, 0.252)
+texture = ExtResource("3_g5det")
+offset = Vector2(0, -250.62)
+script = ExtResource("3_mnprn")
+curve = SubResource("Curve_mnprn")
+
+[node name="AoeSprite" type="Sprite2D" parent="." index="2" unique_id=8636663]
+material = SubResource("ShaderMaterial_38lad")
+scale = Vector2(138.06018, 137.11832)
+texture = SubResource("PlaceholderTexture2D_g5det")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

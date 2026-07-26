@@ -19,10 +19,10 @@ func start_attack():
 func destroy():
 	queue_free()
 
-func apply_damage(body: Node2D):
+func apply_damage(body: Node2D, delta: float = 1.0):
 	if body.has_method("get_countdown"):
 		var countdown = body.get_countdown() as Countdown
-		countdown.add_time(damage)
+		countdown.add_time(damage * delta)
 
 
 func _on_body_entered(body: Node2D) -> void:

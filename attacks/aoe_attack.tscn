@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxwwd5fd8sla3"]
+
+[ext_resource type="PackedScene" uid="uid://wbehabgkpi3m" path="res://attacks/base_attack.tscn" id="1_fi4sj"]
+[ext_resource type="Script" uid="uid://b57ycxq0rtx1a" path="res://aoe_attack.gd" id="2_r52fu"]
+[ext_resource type="PackedScene" uid="uid://c15veq7qpajm8" path="res://attacks/weapons/aoe_weapon.tscn" id="3_r52fu"]
+
+[node name="AoeAttack" unique_id=1820580231 instance=ExtResource("1_fi4sj")]
+script = ExtResource("2_r52fu")
+weapon_type = ExtResource("3_r52fu")
+weapons_per_attack = 20

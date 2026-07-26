@@ -7,3 +7,4 @@
 [node name="HomeingAttack" unique_id=1820580231 instance=ExtResource("1_fjc0a")]
 script = ExtResource("2_lgo1b")
 weapon_type = ExtResource("3_lgo1b")
+weapons_per_attack = 6

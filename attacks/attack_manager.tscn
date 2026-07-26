@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cagiqt8h6ttab" path="res://attacks/homeing_attack.tscn" id="3_y5f0i"]
 [ext_resource type="PackedScene" uid="uid://c78jj0wpn8527" path="res://attacks/wave_attack.tscn" id="4_7pmqf"]
 [ext_resource type="PackedScene" uid="uid://7ravxterucx1" path="res://attacks/laser_attack.tscn" id="5_7pmqf"]
+[ext_resource type="PackedScene" uid="uid://cxwwd5fd8sla3" path="res://attacks/aoe_attack.tscn" id="6_eekh4"]
 
 [node name="AttackManager" type="Node" unique_id=976077207 node_paths=PackedStringArray("attacks")]
 script = ExtResource("1_ovlrm")
-attacks = [NodePath("Attacks/AimedAttack"), NodePath("Attacks/HomeingAttack"), NodePath("Attacks/WaveAttack"), NodePath("Attacks/LaserAttack")]
+attacks = [NodePath("Attacks/AimedAttack"), NodePath("Attacks/HomeingAttack"), NodePath("Attacks/WaveAttack"), NodePath("Attacks/LaserAttack"), NodePath("Attacks/AoeAttack")]
 
 [node name="Attacks" type="Node" parent="." unique_id=1975528073]
 
@@ -24,7 +25,10 @@ manager = NodePath("../..")
 [node name="LaserAttack" parent="Attacks" unique_id=1611139145 node_paths=PackedStringArray("manager") instance=ExtResource("5_7pmqf")]
 manager = NodePath("../..")
 
+[node name="AoeAttack" parent="Attacks" unique_id=1834953694 node_paths=PackedStringArray("manager") instance=ExtResource("6_eekh4")]
+manager = NodePath("../..")
+
 [node name="DoNewAttackTimer" type="Timer" parent="." unique_id=478730614]
-wait_time = 5.0
+wait_time = 3.5
 
 [connection signal="timeout" from="DoNewAttackTimer" to="." method="_on_do_new_attack_timer_timeout"]

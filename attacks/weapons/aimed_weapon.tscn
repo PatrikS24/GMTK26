@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://bo2g1yv257edc"]
 
 [ext_resource type="PackedScene" uid="uid://dmyyllapefm3q" path="res://attacks/weapons/base_weapon.tscn" id="1_ag5uw"]
+[ext_resource type="Script" uid="uid://4eoe7wcwu3hc" path="res://attacks/weapons/spinning_sprite.gd" id="3_5ei4w"]
+[ext_resource type="Texture2D" uid="uid://csn2r2o4qw181" path="res://assets/sprites/iphone.png" id="3_hpa3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5uw"]
-size = Vector2(64.465, 64.03)
-
-[sub_resource type="Gradient" id="Gradient_5714o"]
-offsets = PackedFloat32Array(0, 0.46385542)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gibtk"]
-gradient = SubResource("Gradient_5714o")
+size = Vector2(38.35005, 90.13371)
 
 [node name="AimedWeapon" unique_id=1300584643 instance=ExtResource("1_ag5uw")]
+speed = 175.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1645104309]
+position = Vector2(-0.9587522, -0.95886797)
 shape = SubResource("RectangleShape2D_ag5uw")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1983737595]
-texture = SubResource("GradientTexture2D_gibtk")
+position = Vector2(8.628761, 0)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("3_hpa3h")
+script = ExtResource("3_5ei4w")
